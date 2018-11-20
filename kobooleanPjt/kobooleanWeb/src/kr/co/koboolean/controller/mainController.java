@@ -13,7 +13,6 @@ import kr.co.koboolean.action.Action;
 import kr.co.koboolean.log.action.LoginProcessAction;
 import kr.co.koboolean.log.action.SigninPageAction;
 import kr.co.koboolean.log.action.SigninProcessAction;
-import kr.co.koboolean.main.action.NFCCreateProcessAction;
 import kr.co.koboolean.vo.ActionForward;
 
 /**
@@ -51,7 +50,7 @@ public class mainController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if (command.equals("/signInProcess.main")) {
+		}else if(command.equals("/signInProcess.main")) {
 			action = new SigninProcessAction();
 			try {
 				forward = action.execute(request, response);
@@ -59,16 +58,8 @@ public class mainController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if (command.equals("/login.main")) {
+		}else if(command.equals("/login.main")) {
 			action = new LoginProcessAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else if (command.equals("/nfcCreate.main")) {
-			action = new NFCCreateProcessAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

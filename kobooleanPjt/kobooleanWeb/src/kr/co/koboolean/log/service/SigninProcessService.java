@@ -1,14 +1,14 @@
-package kr.co.koboolean.log.svc;
+package kr.co.koboolean.log.service;
 
 import java.sql.Connection;
 import static kr.co.koboolean.db.JdbcUtil.*;
 
 import kr.co.koboolean.log.dao.LogDAO;
-import kr.co.koboolean.vo.Users;
+import kr.co.koboolean.vo.User;
 
 public class SigninProcessService {
 	
-	public boolean createUserService(Users user) {
+	public boolean createUserService(User user) {
 		Connection con = getConnection();
 		LogDAO logDAO = LogDAO.getInstance();
 		logDAO.setConnection(con);
@@ -26,7 +26,7 @@ public class SigninProcessService {
 		
 	}
 
-	public String loginUserService(Users user) {
+	public String loginUserService(User user) {
 		Connection con = getConnection();
 		LogDAO logDAO = LogDAO.getInstance();
 		logDAO.setConnection(con);
