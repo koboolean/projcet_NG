@@ -1,13 +1,11 @@
 package kr.co.koboolean.vo;
 
-public class User {
+public class Users {
 	private String user_id;
 	private String user_pw;
 	private String user_name;
 	private String user_phone;
-	private String user_num;
-	private String latis;
-	private String longs;
+	
 	
 	public String getUser_id() {
 		return user_id;
@@ -33,23 +31,6 @@ public class User {
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
 	}
-	public String getUser_num() {
-		return user_num;
-	}
-	public void setUser_num(String user_num) {
-		this.user_num = user_num;
-	}
-	public String getLatis() {
-		return latis;
-	}
-	public void setLatis(String latis) {
-		this.latis = latis;
-	}
-	public String getLongs() {
-		return longs;
-	}
-	public void setLongs(String longs) {
-		this.longs = longs;
-	}
+	
 	
 }

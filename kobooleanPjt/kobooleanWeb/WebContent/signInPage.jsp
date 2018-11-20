@@ -15,7 +15,6 @@
 		<input type="password" placeholder="비밀번호" name = "user_pw">
 		<input type="text" placeholder="이름" name = "user_name">
 		<input type="text" placeholder="전화번호" name = "user_phone">
-		<input type="text" placeholder="사업자번호" name = "user_num">
 		<input type = "submit" value="회원가입">
 	</form>
 </body>
