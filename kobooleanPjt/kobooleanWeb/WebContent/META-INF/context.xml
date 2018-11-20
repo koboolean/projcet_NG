@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+  <Resource name="jdbc/jsptest" 
+  auth="Container" 
+  type="javax.sql.DataSource" 
+  username="koboolean" 
+  password="1234" 
+  driverClassName="oracle.jdbc.driver.OracleDriver" 
+  factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory" 
+  url="jdbc:oracle:thin:@203.244.145.214:1521:XE" 
+  maxActive="500" /> 
+  </Context>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "90069758985",
+    "firebase_url": "https://projectauth-aa077.firebaseio.com",
+    "project_id": "projectauth-aa077",
+    "storage_bucket": "projectauth-aa077.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90069758985:android:92ace5d447c7811c",
+        "android_client_info": {
+          "package_name": "koboolean.co.kr.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90069758985-em1qin49foc050gi5n2lul42eemnbvhc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "koboolean.co.kr.project",
+            "certificate_hash": "988c25af5335d908a8244303be6c268faf873e84"
+          }
+        },
+        {
+          "client_id": "90069758985-2jb2gqd6i24122oud9kevq2intd3td0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuZSI7czSlbYMpF0vHkqWXeW2vbEGfk_I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90069758985-2jb2gqd6i24122oud9kevq2intd3td0u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
