@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="koboolean.co.kr.project">
+    <!-- 구글 맵을 띄우기 위한 설정 -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -18,24 +27,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".GoogleMapActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GoogleMapActivity"
+            android:screenOrientation="portrait" />
         <!-- 구글 맵을 띄우기 위한 설정 -->
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
+            android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDNEh_cKghKhfVxWTIp8Y1jj7ObqBG3Ngg"/>
+            android:value="AIzaSyDNEh_cKghKhfVxWTIp8Y1jj7ObqBG3Ngg" />
+
+        <activity android:name=".GetGPS_ForLogin"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data tools:ignore="AppLinkUrlError" android:scheme="posturl" android:host="postgps"/>
+            </intent-filter>
+        </activity>
     </application>
-    <!-- 구글 맵을 띄우기 위한 설정 -->
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

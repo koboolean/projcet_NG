@@ -6,20 +6,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.koboolean.action.Action;
-import kr.co.koboolean.log.service.SigninProcessService;
+import kr.co.koboolean.log.svc.SigninProcessService;
 import kr.co.koboolean.vo.ActionForward;
-import kr.co.koboolean.vo.User;
+import kr.co.koboolean.vo.Users;
 
 public class SigninProcessAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		User user = new User();
+		Users user = new Users();
 		user.setUser_id(request.getParameter("user_id"));
 		user.setUser_pw(request.getParameter("user_pw"));
 		user.setUser_name(request.getParameter("user_name"));
 		user.setUser_phone(request.getParameter("user_phone"));
-		user.setUser_num(request.getParameter("user_num"));
 		
 		System.out.println(user.getUser_name());
 		

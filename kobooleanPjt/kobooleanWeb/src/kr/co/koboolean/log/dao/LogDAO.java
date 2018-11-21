@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import kr.co.koboolean.vo.User;
+import kr.co.koboolean.vo.Users;
 
 
 public class LogDAO {
@@ -31,12 +31,12 @@ public class LogDAO {
 		this.con = con;
 	}
 
-	public int createUser(User user) {
+	public int createUser(Users user) {
 		int insertMem = 0;
 		PreparedStatement pstmt = null;
 
-		String sql = "INSERT INTO USERS(user_id, user_pw, user_name, user_phone, user_num)"
-				+ "VALUES(?,?,?,?,?)";
+		String sql = "INSERT INTO USERS(user_id, user_pw, user_name, user_phone)"
+				+ "VALUES(?,?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -45,7 +45,6 @@ public class LogDAO {
 			pstmt.setString(2, user.getUser_pw());
 			pstmt.setString(3, user.getUser_name());
 			pstmt.setString(4, user.getUser_phone());
-			pstmt.setString(5, user.getUser_num());
 			
 			insertMem = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -55,11 +54,11 @@ public class LogDAO {
 		return insertMem;
 	}
 
-	public String loginUser(User user) {
+	public String loginUser(Users user) {
 		boolean success = false;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		User users = new User();
+		Users users = new Users();
 		String user_name = null;
 		
 		String sql = "SELECT user_name FROM users WHERE user_id = ? and user_pw = ?";
