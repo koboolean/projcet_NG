@@ -12,10 +12,13 @@ import java.io.IOException
 class GetGPS_ForLogin : AppCompatActivity() {
     var web_id : String? = null
     var web_pw : String? = null
-
+    var activity : Intent? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_gps__for_login)
+
+        activity = Intent(this, GetGPS_getPost::class.java)
+
         login_button.setOnClickListener { view ->
             web_id = check_id.text.toString()
             web_pw = check_pw.text.toString()
@@ -56,7 +59,15 @@ class GetGPS_ForLogin : AppCompatActivity() {
             runOnUiThread{
                 var obj = JSONObject(result)
                 var name = obj.getString("user_name")
-                textView.text = name
+                if(!name.equals("?")){
+                    activity?.putExtra("user_name", name)
+                    activity?.putExtra("user_id", web_id)
+                    startActivity(activity)
+                }else{
+                    textView2.text = "아이디 혹은 비밀번호를 확인해주세요."
+                }
+
+
             }
         }
     }

@@ -18,15 +18,17 @@
 	pstmt.setString(1, order_id);
 	pstmt.setString(2, order_pw);
 	ResultSet rs = pstmt.executeQuery();
-
-	rs.next();
-
+	
 	JSONObject root = new JSONObject();
-
+	
+	if(rs.next()){
 	String user_name = rs.getString("user_name");
 
 	root.put("user_name", user_name);
-
+	}
+	else{
+	root.put("user_name", "?");
+	}
 	db.close();
 %>
 
