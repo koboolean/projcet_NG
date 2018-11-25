@@ -18,7 +18,7 @@
 	pstmt.setString(1, order_id);
 	pstmt.setString(2, order_pw);
 	ResultSet rs = pstmt.executeQuery();
-<<<<<<< HEAD
+
 	
 	JSONObject root = new JSONObject();
 	
@@ -29,9 +29,8 @@
 	}
 	else{
 	root.put("user_name", "?");
-=======
+	}
 
-	JSONObject root = new JSONObject();
 	
 	if(rs.next()){
 		
@@ -40,10 +39,8 @@
 	root.put("user_name", user_name);
 	}else{
 		root.put("user_name","?");
->>>>>>> 조현준
 	}
 	db.close();
 %>
-
 <%=root.toJSONString()%>
 
