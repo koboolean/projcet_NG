@@ -54,19 +54,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-<<<<<<< HEAD
-        android:id="@+id/textView2"
-=======
         android:id="@+id/textView3"
->>>>>>> 조현준
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-<<<<<<< HEAD
-=======
         android:text="TextView"
->>>>>>> 조현준
         app:layout_constraintBottom_toTopOf="@+id/check_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

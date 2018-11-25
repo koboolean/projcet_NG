@@ -17,13 +17,8 @@ class GetGPS_ForLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_gps__for_login)
-<<<<<<< HEAD
-
         activity = Intent(this, GetGPS_getPost::class.java)
-
-=======
         activity = Intent(this, Get_GPSActivity::class.java)
->>>>>>> 조현준
         login_button.setOnClickListener { view ->
             web_id = check_id.text.toString()
             web_pw = check_pw.text.toString()
@@ -62,7 +57,6 @@ class GetGPS_ForLogin : AppCompatActivity() {
             var result = response?.body()?.string()
 
             runOnUiThread{
-<<<<<<< HEAD
                 var obj = JSONObject(result)
                 var name = obj.getString("user_name")
                 if(!name.equals("?")){
@@ -70,13 +64,9 @@ class GetGPS_ForLogin : AppCompatActivity() {
                     activity?.putExtra("user_id", web_id)
                     startActivity(activity)
                 }else{
-                    textView2.text = "아이디 혹은 비밀번호를 확인해주세요."
+                    textView3.text = "아이디 혹은 비밀번호를 확인해주세요."
                 }
 
-
-=======
-                    var obj = JSONObject(result)
-                    var name = obj.getString("user_name")
                 if(name.equals("?")){
                     textView3.text = "아이디 및 비밀번호를 다시 확인해주세요"
                 }else{
@@ -84,8 +74,6 @@ class GetGPS_ForLogin : AppCompatActivity() {
                     activity?.putExtra("web_id", web_id)
                     startActivity(activity)
                 }
-
->>>>>>> 조현준
             }
         }
     }
