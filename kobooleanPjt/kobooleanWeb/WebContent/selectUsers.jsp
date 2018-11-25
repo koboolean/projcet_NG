@@ -31,15 +31,6 @@
 	root.put("user_name", "?");
 	}
 
-	
-	if(rs.next()){
-		
-	String user_name = rs.getString("user_name");
-
-	root.put("user_name", user_name);
-	}else{
-		root.put("user_name","?");
-	}
 	db.close();
 %>
 <%=root.toJSONString()%>
