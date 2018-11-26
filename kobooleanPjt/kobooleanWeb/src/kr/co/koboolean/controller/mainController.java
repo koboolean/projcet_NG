@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.koboolean.action.Action;
 import kr.co.koboolean.log.action.LoginProcessAction;
+import kr.co.koboolean.log.action.LogoutAction;
 import kr.co.koboolean.log.action.SigninPageAction;
 import kr.co.koboolean.log.action.SigninProcessAction;
 import kr.co.koboolean.main.action.NFCCreateProcessAction;
 import kr.co.koboolean.main.action.SelectGPSAction;
+import kr.co.koboolean.main.action.insertFoodAction;
 import kr.co.koboolean.vo.ActionForward;
 
 /**
@@ -78,6 +80,22 @@ public class mainController extends HttpServlet {
 			}
 		} else if (command.equals("/selectgps.main")) {
 			action = new SelectGPSAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (command.equals("/logout.main")) {
+			action = new LogoutAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (command.equals("/insertFoodArea.main")) {
+			action = new insertFoodAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

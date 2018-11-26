@@ -17,7 +17,7 @@
 	</form>
 	
 	<form action = "signIn.main">
-		<input type="submit" value = "회원가입 페이지">
+		<input type="submit" value = "회원가입">
 	</form>
 </body>
 </html>

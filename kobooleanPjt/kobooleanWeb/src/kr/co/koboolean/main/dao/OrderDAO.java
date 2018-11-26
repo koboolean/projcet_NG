@@ -13,7 +13,7 @@ import kr.co.koboolean.vo.Orders;
 
 public class OrderDAO {
 	// singleton 패턴사용
-	private static OrderDAO logDAO;
+	private static OrderDAO orderDAO;
 	private Connection con;
 
 	private OrderDAO() {
@@ -21,10 +21,10 @@ public class OrderDAO {
 	}
 
 	public static OrderDAO getInstance() {
-		if (logDAO == null) {
-			logDAO = new OrderDAO();
+		if (orderDAO == null) {
+			orderDAO = new OrderDAO();
 		}
-		return logDAO;
+		return orderDAO;
 	}
 
 	public void setConnection(Connection con) {

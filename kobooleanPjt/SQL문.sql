@@ -18,6 +18,16 @@ create table orders(
     primary key(order_id)
 )
 
+create table areas(
+    area_id varchar2(50) not null,
+    area_name varchar2(100) not null,
+    area_address varchar2(100) not null,
+    area_num varchar2(50) not null,
+    area_intro varchar2(500) not null,
+    primary key(area_id)
+)
+
 
 drop table orders;
 
+insert into areas(area_id, area_name, area_address, area_num, area_intro) values("1","1","1","1","1");
