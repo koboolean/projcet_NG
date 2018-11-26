@@ -27,7 +27,6 @@ create table areas(
     primary key(area_id)
 )
 
-
 drop table orders;
 
-insert into areas(area_id, area_name, area_address, area_num, area_intro) values("1","1","1","1","1");
+INSERT INTO AREAS(area_id, area_name, area_address, area_num, area_intro) VALUES(?,?,?,?,?);

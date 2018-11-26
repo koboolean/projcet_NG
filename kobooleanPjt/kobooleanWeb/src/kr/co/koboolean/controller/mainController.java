@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.koboolean.action.Action;
+import kr.co.koboolean.action.searchAreaAction;
 import kr.co.koboolean.log.action.LoginProcessAction;
 import kr.co.koboolean.log.action.LogoutAction;
 import kr.co.koboolean.log.action.SigninPageAction;
@@ -96,6 +97,14 @@ public class mainController extends HttpServlet {
 			}
 		} else if (command.equals("/insertFoodArea.main")) {
 			action = new insertFoodAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (command.equals("/searchArea.main")) {
+			action = new searchAreaAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

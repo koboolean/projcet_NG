@@ -54,4 +54,33 @@ public class AreaDAO {
 		return insertSuccess;
 	}
 
+	public Areas selectArea(String user_id) {
+		Areas area = new Areas();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "select * from areas where area_id = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				area.setArea_id(rs.getString("area_id"));
+				area.setArea_name(rs.getString("area_name"));
+				area.setArea_address(rs.getString("area_address"));
+				area.setArea_num(rs.getString("area_num"));
+				area.setArea_intro(rs.getString("area_intro"));
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return area;
+	}
+
 }

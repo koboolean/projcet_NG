@@ -30,4 +30,14 @@ public class AreaService {
 		return success;
 	}
 
+	public Areas searchArea(String user_id) {
+		
+		Connection con = getConnection();
+		AreaDAO areaDAO = AreaDAO.getInstance();
+		areaDAO.setConnection(con);
+		Areas success = areaDAO.selectArea(user_id);
+		
+		return success;
+	}
+
 }

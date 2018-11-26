@@ -36,8 +36,7 @@
 					<td class="td_left_content">
 					<label for="area_intro">가게 소개</label></td>
 					<td class="td_right_content">
-					<textarea rows="23.5" cols="100" name="area_intro" id="area_intro">
-					</textarea>
+					<textarea rows="23.5" cols="100" name="area_intro" id="area_intro"></textarea>
 					</td>
 				</tr>
 				<tr>
