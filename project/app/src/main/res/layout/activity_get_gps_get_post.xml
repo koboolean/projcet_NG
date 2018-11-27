@@ -14,13 +14,13 @@
         android:layout_marginTop="140dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/web_server_gps_push"
+        app:layout_constraintBottom_toTopOf="@+id/web_server_gps_pushs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/web_server_gps_push"
+        android:id="@+id/web_server_gps_pushs"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="224dp"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/web_server_gps_push"
+        app:layout_constraintBottom_toTopOf="@+id/web_server_gps_pushs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_id" />

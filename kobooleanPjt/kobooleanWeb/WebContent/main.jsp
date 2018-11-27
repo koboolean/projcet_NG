@@ -13,13 +13,14 @@
 	${user_id}님 반갑습니다.
 	
 	<br>
-	<input type="button" onclick="location.href = 'insertFoodArea.jsp'"
+	<input type="button" onclick="location.href = 'insertFoodAreaGo.main'"
 		value="상호정보 등록">
-	<input type="button" onclick="location.href='nfcStore.jsp'"
+	<input type="button" onclick="location.href = 'searchArea.main'"
+		value="상호정보 수정">		
+	<input type="button" onclick="location.href='nfcStore.main'"
 		value="NFC 발급신청">
+	<input type="button" onclick = "location.href='insertFood'" value="음식정보 입력">
 	<input type="button" onclick="location.href = 'logout.main'"
 		value="로그아웃">
-		
-	<%-- <jsp:include page="searchArea.jsp"></jsp:include> --%>
 </body>
 </html>

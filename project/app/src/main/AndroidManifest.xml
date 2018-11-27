@@ -24,7 +24,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -41,16 +40,13 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDNEh_cKghKhfVxWTIp8Y1jj7ObqBG3Ngg" />
-
         <activity
             android:name=".GetGPS_ForLogin"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="postgps"
                     android:scheme="posturl"
@@ -58,7 +54,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".GetGPS_getPost"></activity>
-        <activity android:name=".Get_GPSActivity"></activity>
     </application>
 
 </manifest>

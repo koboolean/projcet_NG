@@ -15,7 +15,6 @@
 		<input type = "password" placehorder = "비밀번호" name = "user_pw">
 		<input type = "submit" value="로그인">
 	</form>
-	
 	<form action = "signIn.main">
 		<input type="submit" value = "회원가입">
 	</form>

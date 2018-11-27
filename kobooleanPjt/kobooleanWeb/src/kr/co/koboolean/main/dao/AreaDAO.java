@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
+
 import kr.co.koboolean.vo.Areas;
 
 
@@ -82,5 +84,31 @@ public class AreaDAO {
 		}
 		return area;
 	}
+
+	public int updateArea(Areas area) {
+		PreparedStatement pstmt = null;
+		int success = 0;
+		String sql = "update areas set area_name = ? , area_address = ?, area_num = ? , area_intro = ? where area_id = ?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, area.getArea_name());
+			pstmt.setString(2, area.getArea_address());
+			pstmt.setString(3, area.getArea_num());
+			pstmt.setString(4, area.getArea_intro());
+			pstmt.setString(5, area.getArea_id());
+			
+			success = pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(pstmt);
+		}
+		
+		
+		return success;
+	}
+
+	
 
 }

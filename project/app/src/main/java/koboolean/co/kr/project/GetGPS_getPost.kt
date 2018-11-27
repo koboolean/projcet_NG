@@ -10,12 +10,8 @@ import android.location.LocationManager
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
 import android.util.Log
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.LatLng
-import kotlinx.android.synthetic.main.activity_get_gps__for_login.*
+
 import kotlinx.android.synthetic.main.activity_get_gps_get_post.*
 import okhttp3.*
 import org.json.JSONObject
@@ -40,15 +36,17 @@ class GetGPS_getPost : AppCompatActivity() {
 
         var intent = getIntent()
         web_id = intent.getStringExtra("user_id")
+        Log.i("this","asdafsdcasdtgaweaef")
         var user_name = intent.getStringExtra("user_name")
-
+        Log.i("this",web_id)
         user_id.text = user_name + "님 반갑습니다."
 
 
-        web_server_gps_push.setOnClickListener { view ->
+        web_server_gps_pushs.setOnClickListener { view ->
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                 requestPermissions(permission_list, 0)
             }else {
+
                 getByLocation()
             }
         }
@@ -89,13 +87,14 @@ class GetGPS_getPost : AppCompatActivity() {
     inner class CallBack1 : Callback {
         // 서버와의 통신이 실패되었을 때
         override fun onFailure(call: Call, e: IOException) {
-
+            textView4.text = "네트워크 통신을 실패하였습니다."
         }
         // 서버와의 통신이 잘 마무리 되었을 때
         override fun onResponse(call: Call, response: Response) {
             var result = response?.body()?.string()
 
             runOnUiThread{
+                Log.i("this",result);
                 var obj = JSONObject(result)
                 var name = obj.getString("order_id")
                 if(!name.equals("?")){

@@ -29,7 +29,7 @@ public class LoginProcessAction implements Action {
 			HttpSession session = request.getSession();
 			session.setAttribute("user_id", user_id);
 			forward = new ActionForward();
-			forward.setUrl("main.jsp");
+			forward.setUrl("layout.jsp");
 			forward.setRedirect(true);
 		}else {
 			response.setContentType("text/html;charset=UTF-8");

@@ -31,8 +31,8 @@ public class NFCCreateProcessAction implements Action {
 		
 		if(success) {
 			forward = new ActionForward();
-			forward.setUrl("nfcCreateSuccess.jsp");
-			forward.setRedirect(true);
+			request.setAttribute("form_menu", "nfcCreateSuccess.jsp");
+			forward.setUrl("layout.jsp");
 		}else {
 			response.setContentType("text/html;charset=UTF-8");
 	        PrintWriter out = response.getWriter();

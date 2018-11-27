@@ -10,14 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.koboolean.action.Action;
-import kr.co.koboolean.action.searchAreaAction;
 import kr.co.koboolean.log.action.LoginProcessAction;
 import kr.co.koboolean.log.action.LogoutAction;
 import kr.co.koboolean.log.action.SigninPageAction;
 import kr.co.koboolean.log.action.SigninProcessAction;
 import kr.co.koboolean.main.action.NFCCreateProcessAction;
 import kr.co.koboolean.main.action.SelectGPSAction;
+import kr.co.koboolean.main.action.UpdateFoodAreaAction;
 import kr.co.koboolean.main.action.insertFoodAction;
+import kr.co.koboolean.main.action.insertFoodAreaAction;
+import kr.co.koboolean.main.action.nfcStoreAction;
+import kr.co.koboolean.main.action.searchAreaAction;
 import kr.co.koboolean.vo.ActionForward;
 
 /**
@@ -105,6 +108,30 @@ public class mainController extends HttpServlet {
 			}
 		} else if (command.equals("/searchArea.main")) {
 			action = new searchAreaAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (command.equals("/updateFoodArea.main")) {
+			action = new UpdateFoodAreaAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (command.equals("/insertFoodAreaGo.main")) {
+			action = new insertFoodAreaAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (command.equals("/nfcStore.main")) {
+			action = new nfcStoreAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

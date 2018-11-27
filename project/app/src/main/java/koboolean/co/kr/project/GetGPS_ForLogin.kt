@@ -18,7 +18,6 @@ class GetGPS_ForLogin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_gps__for_login)
         activity = Intent(this, GetGPS_getPost::class.java)
-        activity = Intent(this, Get_GPSActivity::class.java)
         login_button.setOnClickListener { view ->
             web_id = check_id.text.toString()
             web_pw = check_pw.text.toString()
