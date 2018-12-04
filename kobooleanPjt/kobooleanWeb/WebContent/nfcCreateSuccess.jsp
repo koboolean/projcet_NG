@@ -11,10 +11,7 @@
 </head>
 <body>
 	<p>아래의 QR코드를 찍은 후 버튼을 눌러주세요</p>
-	<br>
 	<img src="images/frame.png">
-	<form action="">
-	<input type= "button" name = "checkGPS" value = "QR코드를 찍었어요">
-	</form>
+	<input type="button" value = "QR코드를 찍었어요" onclick="location.href = 'checkGPS.main'">
 </body>
 </html>

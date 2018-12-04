@@ -4,12 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment_account"
+    android:orientation="vertical"
     android:background="#00ffff">
 
     <Button
         android:id="@+id/logout_button"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="로그아웃"/>
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="로그아웃" />
+    <Button
+        android:id="@+id/changepassword_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="비밀번호 변경" />
 
+    <Button
+        android:id="@+id/checkEmail_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="이메일 인증" />
 </LinearLayout>

@@ -17,6 +17,7 @@ import kr.co.koboolean.log.action.SigninProcessAction;
 import kr.co.koboolean.main.action.NFCCreateProcessAction;
 import kr.co.koboolean.main.action.SelectGPSAction;
 import kr.co.koboolean.main.action.UpdateFoodAreaAction;
+import kr.co.koboolean.main.action.checkGPSAction;
 import kr.co.koboolean.main.action.insertFoodAction;
 import kr.co.koboolean.main.action.insertFoodAreaAction;
 import kr.co.koboolean.main.action.nfcStoreAction;
@@ -132,6 +133,14 @@ public class mainController extends HttpServlet {
 			}
 		} else if (command.equals("/nfcStore.main")) {
 			action = new nfcStoreAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (command.equals("/checkGPS.main")) {
+			action = new checkGPSAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

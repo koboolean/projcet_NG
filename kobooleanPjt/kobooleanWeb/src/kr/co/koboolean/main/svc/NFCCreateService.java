@@ -29,4 +29,13 @@ public class NFCCreateService {
 		return successCount;
 	}
 
+	public boolean searchGPS(String user_id) {
+		Connection con = getConnection();
+		OrderDAO orderDAO = OrderDAO.getInstance();
+		orderDAO.setConnection(con);
+		boolean success = orderDAO.searchOrder(user_id);
+		close(con);
+		return success;
+	}
+
 }

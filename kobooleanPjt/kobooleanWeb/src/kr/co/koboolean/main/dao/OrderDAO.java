@@ -55,6 +55,44 @@ public class OrderDAO {
 		return insertMem;
 	}
 
+	public boolean searchOrder(String user_id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean success = false;
+		String sql = "select order_latis, order_longs from orders where order_id = ?";
+		String check = null;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				check = rs.getString("order_latis");
+			}
+			if(check != null) {
+				success = true;
+			}
+			else {
+				sql = "delete from orders where order_id = user_id";
+				try {
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, user_id);
+					
+					int deleteMem = pstmt.executeUpdate();
+					
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return success;
+	}
+
 
 	
 	
