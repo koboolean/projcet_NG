@@ -21,22 +21,33 @@ public class searchAreaAction implements Action {
 		
 		AreaService areaService = new AreaService();
 		Areas success = areaService.searchArea(user_id);
-		System.out.println(success.getArea_name());
+		
 		ActionForward forward = null;
-		System.out.println(success.getArea_id());
-		if(success.getArea_id() == user_id) {
-			request.setAttribute("area", success);
-			forward = new ActionForward();
-			request.setAttribute("form_menu", "searchAreaSuccess.jsp");
-			forward.setUrl("layout.jsp");
-		}else {
+	
+		if(user_id != null) {
+			if(success.getArea_id().equals(user_id)) {
+				request.setAttribute("area", success);
+				forward = new ActionForward();
+				request.setAttribute("form_menu", "searchAreaSuccess.jsp");
+				forward.setUrl("layout.jsp");
+			}else {
+				response.setContentType("text/html;charset=UTF-8");
+		        PrintWriter out = response.getWriter();
+		        out.println("<script>");
+		        out.println("alert('현재 저장해놓은 정보가 없습니다.')");
+		        out.println("history.back()");
+		        out.println("</script>");
+			}
+		}
+		else {
 			response.setContentType("text/html;charset=UTF-8");
 	        PrintWriter out = response.getWriter();
 	        out.println("<script>");
-	        out.println("alert('현재 저장해놓은 정보가 없습니다.')");
-	        out.println("history.back()");
+	        out.println("alert('로그인을 먼저 해주세요')");
+	        out.println("location.href='loginForm.main'");
 	        out.println("</script>");
 		}
+		
 		
 		return forward;
 	}

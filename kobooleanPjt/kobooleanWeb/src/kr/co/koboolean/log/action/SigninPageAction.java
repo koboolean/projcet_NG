@@ -11,7 +11,8 @@ public class SigninPageAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
-		forward.setUrl("signInPage.jsp");
+		request.setAttribute("form_menu", "signInPage.jsp");
+		forward.setUrl("layout.jsp");
 		return forward;
 	}
 

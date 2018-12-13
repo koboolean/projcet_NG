@@ -13,16 +13,20 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import koboolean.co.kr.project.dataDAO.UserDAO
+import kotlinx.android.synthetic.main.activity_get_gps__for_login.*
 import kotlinx.android.synthetic.main.fragment_user_interface.view.*
+
 
 
 class Fragment_account : Fragment() {
     var fragmentView: View? = null
     var userDAO : UserDAO? = null
+    var web_id : String? = null
+    var web_pw : String? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-
 
 
         userDAO = UserDAO(FirebaseAuth.getInstance().currentUser?.email)
@@ -39,6 +43,10 @@ class Fragment_account : Fragment() {
         }
         fragmentView?.checkEmail_button?.setOnClickListener {
             sendEmailVerification()
+        }
+
+        fragmentView?.manager_user?.setOnClickListener { view ->
+            startActivity(Intent(activity, GetGPS_ForLogin::class.java))
         }
 
         fragmentView?.changepassword_button?.setOnClickListener {
@@ -86,8 +94,6 @@ class Fragment_account : Fragment() {
             }
         }
     }
-
-
 
 
 

@@ -36,9 +36,9 @@ class GetGPS_getPost : AppCompatActivity() {
 
         var intent = getIntent()
         web_id = intent.getStringExtra("user_id")
-        Log.i("this","asdafsdcasdtgaweaef")
+
         var user_name = intent.getStringExtra("user_name")
-        Log.i("this",web_id)
+
         user_id.text = user_name + "님 반갑습니다."
 
 
@@ -49,6 +49,11 @@ class GetGPS_getPost : AppCompatActivity() {
 
                 getByLocation()
             }
+        }
+        insert_food.setOnClickListener { view ->
+            var intent = Intent(this, InsertFoodActivity::class.java)
+            intent.putExtra("user_id", web_id)
+            startActivity(intent)
         }
     }
 
@@ -102,8 +107,6 @@ class GetGPS_getPost : AppCompatActivity() {
                 }else{
                     textView4.text = "위치정보 저장 실패"
                 }
-
-
             }
         }
     }
@@ -172,4 +175,5 @@ class GetGPS_getPost : AppCompatActivity() {
 
         }
     }
+
 }

@@ -10,11 +10,9 @@
         android:id="@+id/user_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="140dp"
-        android:text="TextView"
+        android:layout_marginTop="32dp"
+        android:text="000 님 반갑습니다."
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/web_server_gps_pushs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,11 +21,24 @@
         android:id="@+id/web_server_gps_pushs"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="224dp"
+        android:layout_marginBottom="412dp"
         android:text="위치정보 저장"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/insert_food"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="음식 등록"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/web_server_gps_pushs"
+        app:layout_constraintVertical_bias="0.002" />
 
     <TextView
         android:id="@+id/textView4"
@@ -35,8 +46,30 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
+        android:text="위치정보를 저장하세요"
         app:layout_constraintBottom_toTopOf="@+id/web_server_gps_pushs"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_id" />
+        app:layout_constraintTop_toBottomOf="@+id/user_id"
+        app:layout_constraintVertical_bias="0.363" />
+
+    <LinearLayout
+        android:background="@drawable/ic_chat_black"
+        android:id="@+id/main_layout"
+        android:layout_width="401dp"
+        android:layout_height="315dp"
+        android:layout_below="@+id/textView4"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insert_food"
+        app:layout_constraintVertical_bias="0.75" />
 </android.support.constraint.ConstraintLayout>

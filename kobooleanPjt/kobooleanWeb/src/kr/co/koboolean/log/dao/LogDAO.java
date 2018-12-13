@@ -78,7 +78,5 @@ public class LogDAO {
 		}
 		return user_name;
 	}
-
-	
 	
 }

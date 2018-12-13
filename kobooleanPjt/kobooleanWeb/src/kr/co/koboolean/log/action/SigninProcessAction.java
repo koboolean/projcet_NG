@@ -19,27 +19,26 @@ public class SigninProcessAction implements Action {
 		user.setUser_pw(request.getParameter("user_pw"));
 		user.setUser_name(request.getParameter("user_name"));
 		user.setUser_phone(request.getParameter("user_phone"));
-		
+
 		System.out.println(user.getUser_name());
-		
+
 		SigninProcessService signinService = new SigninProcessService();
 		boolean success = signinService.createUserService(user);
 		ActionForward forward = null;
-		
-		if(success == true) {
+
+		if (success == true) {
 			forward = new ActionForward();
-			forward.setUrl("index.jsp");
+			forward.setUrl("loginForm.main");
 			forward.setRedirect(true);
-		}else {
+		} else {
 			response.setContentType("text/html;charset=UTF-8");
-	        PrintWriter out = response.getWriter();
-	        out.println("<script>");
-	        out.println("alert('정보입력이 누락되었거나 현재 존재하는 아이디입니다.')");
-	        out.println("history.back()");
-	        out.println("</script>");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('정보입력이 누락되었거나 현재 존재하는 아이디입니다.')");
+			out.println("history.back()");
+			out.println("</script>");
 		}
-		
-		
+
 		return forward;
 	}
 

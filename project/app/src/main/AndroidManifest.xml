@@ -11,6 +11,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -21,18 +24,22 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".GoogleMapActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <!-- 구글 맵을 띄우기 위한 설정 -->
         <meta-data
             android:name="com.google.android.gms.version"
@@ -40,20 +47,37 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDNEh_cKghKhfVxWTIp8Y1jj7ObqBG3Ngg" />
+
         <activity
             android:name=".GetGPS_ForLogin"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="postgps"
                     android:scheme="posturl"
                     tools:ignore="AppLinkUrlError" />
             </intent-filter>
         </activity>
-        <activity android:name=".GetGPS_getPost"></activity>
+        <activity
+            android:name=".GetGPS_getPost"
+            android:screenOrientation="portrait" />
+        <activity android:name=".InsertFoodActivity" />
+        <activity android:name=".WriteActivity" />
+        <activity android:name=".DetailActivity"></activity>
+        <provider
+            android:authorities="koboolean.co.kr.project.file_provider"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_path"/>
+        </provider>
     </application>
 
 </manifest>
