@@ -68,7 +68,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".InsertFoodActivity" />
         <activity android:name=".WriteActivity" />
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".DetailActivity"
+            android:screenOrientation="portrait"></activity>
         <provider
             android:authorities="koboolean.co.kr.project.file_provider"
             android:name="android.support.v4.content.FileProvider"

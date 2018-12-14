@@ -16,12 +16,10 @@ import android.support.v4.content.FileProvider
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_write.*
-import okhttp3.MultipartBody
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.RequestBody
+import okhttp3.*
 import java.io.File
 import java.io.FileOutputStream
+import java.io.IOException
 
 
 class WriteActivity : AppCompatActivity() {
@@ -173,7 +171,7 @@ class WriteActivity : AppCompatActivity() {
             // 멀티파트 폼 데이터 지정
             var mutipart_builder = MultipartBody.Builder()
             mutipart_builder.setType(MultipartBody.FORM)
-
+            mutipart_builder.addFormDataPart("user_id", web_id)
             mutipart_builder.addFormDataPart("food_write",food_write.text.toString())
             mutipart_builder.addFormDataPart("price_write",price_write.text.toString())
 
@@ -184,8 +182,23 @@ class WriteActivity : AppCompatActivity() {
             var post = url.post(body)
 
             var request = post.build()
+            var callback1 = Callback_Food()
 
-            client.newCall(request).execute()
+            client.newCall(request).enqueue(callback1)
         }
+    }
+    inner class Callback_Food : Callback{
+        override fun onFailure(call: Call, e: IOException) {
+
+        }
+
+        override fun onResponse(call: Call, response: Response) {
+            var result = response?.body()?.string()
+
+            if(result?.trim().equals("OK")){
+                finish()
+            }
+        }
+
     }
 }

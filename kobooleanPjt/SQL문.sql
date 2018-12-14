@@ -27,6 +27,23 @@ create table areas(
     primary key(area_id)
 )
 
+create sequence food_seq
+start with 0
+increment by 1
+minvalue 0;
+
+insert into foods(food_idx, user_id, mobile_img, mobile_food, mobile_price) values (1, "gd", "gd", "gd", "gd");
+
+create table foods(
+    food_idx number,
+    user_id varchar2(50) not null,
+    mobile_img varchar2(200) not null,
+    mobile_food varchar2(500) not null,
+    mobile_pri varchar2(500) not null,
+    primary key(food_idx)
+);
+
+drop table foods;
 drop table orders;
 
-INSERT INTO AREAS(area_id, area_name, area_address, area_num, area_intro) VALUES(?,?,?,?,?);
+INSERT INTO foods(food_idx, user_id, mobile_img, mobile_food, mobile_pri) VALUES(FOOD_SEQ.NEXTVAL, "gd", "gd", "gd", "gd");

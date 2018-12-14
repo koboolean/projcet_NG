@@ -3,10 +3,13 @@ package koboolean.co.kr.project
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -14,14 +17,22 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_insert_food.*
+import okhttp3.*
+import org.json.JSONArray
 import java.io.File
+import java.io.IOException
+import java.net.URL
+import java.util.*
+import kotlin.collections.HashMap
 
 class InsertFoodActivity : AppCompatActivity() {
 
     var web_id : String? = null
 
     var  listData = ArrayList<HashMap<String, Any>>()
+    var imageMap = HashMap<String, Bitmap>()
 
     var permission_list = arrayOf(
             Manifest.permission.CAMERA,
@@ -75,11 +86,19 @@ class InsertFoodActivity : AppCompatActivity() {
 
             var map = listData.get(p0)
 
-            var mobile_img = map.get("mobile_img") as Int
+            var mobile_img = map.get("mobile_img") as String
             var mobile_str1 = map.get("mobile_str1") as String
             var mobile_str2 = map.get("mobile_str2") as String
 
-            img1?.setImageResource(mobile_img)
+            var bitmap:Bitmap? = imageMap.get(mobile_img)
+
+            if(bitmap == null){
+
+                var thread2 = ImageNetworkThread(mobile_img as String)
+                thread2.start()
+            }else{
+                img1?.setImageBitmap(bitmap)
+            }
             str1?.text = mobile_str1
             str2?.text = mobile_str2
 
@@ -97,7 +116,8 @@ class InsertFoodActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.menu_reload ->{
-
+                var thread = getDataThread()
+                thread.start()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -111,20 +131,23 @@ class InsertFoodActivity : AppCompatActivity() {
         if(file.exists() == false){
             file.mkdir()
         }
-        var map1 = HashMap<String, Any>()
-
-        map1.put("mobile_img", android.R.drawable.ic_menu_agenda)
-        map1.put("mobile_str1", "짜장면")
-        map1.put("mobile_str2", "5000원")
-
-        listData.add(map1)
 
         var adapter = main_list.adapter as ListAdapter
         adapter.notifyDataSetChanged()
 
         main_list.setOnItemClickListener{ adapterView, view, i, l ->
-            startActivity(Intent(this, DetailActivity::class.java))
+            var intent = Intent(this, DetailActivity::class.java)
+            var map = listData.get(i) as HashMap<String, Any>
+            var mobile_idx = map.get("mobile_idx") as Int
+            intent.putExtra("mobile_idx", mobile_idx)
+            startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        var thread = getDataThread()
+        thread.start()
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -135,4 +158,90 @@ class InsertFoodActivity : AppCompatActivity() {
         }
         init()
     }
+    inner class getDataThread : Thread(){
+        override fun run() {
+            var client = OkHttpClient()
+            var builder = Request.Builder()
+            var url = builder.url("http://203.244.145.214:8084/kobooleanWeb/get_list_food.jsp")
+
+            var bodyBuilder = FormBody.Builder()
+
+            bodyBuilder.add("user_id",web_id)
+
+            var body = bodyBuilder.build()
+            var post = url.post(body)
+
+            var request = post.build()
+
+            var callback = Callback1()
+            client.newCall(request).enqueue(callback)
+        }
+    }
+    inner class Callback1 : Callback {
+        override fun onFailure(call: Call?, e: IOException?) {
+
+        }
+
+        override fun onResponse(call: Call?, response: Response?) {
+            var result = response?.body()?.string()
+
+            listData.clear()
+
+            Log.i("hello",result)
+
+            var array = JSONArray(result)
+
+            for (i in 0 until array.length()) {
+                var obj = array.getJSONObject(i)
+
+                var mobile_idx = obj.getInt("mobile_idx")
+                var mobile_img = obj.getString("mobile_img")
+                var mobile_str1 = obj.getString("mobile_str1")
+                var mobile_str2 = obj.getString("mobile_str2")
+
+                var map = HashMap<String, Any>()
+                map.put("mobile_idx", mobile_idx)
+                map.put("mobile_img", mobile_img)
+                map.put("mobile_str1", mobile_str1)
+                map.put("mobile_str2", mobile_str2)
+
+                listData.add(map)
+            }
+
+            runOnUiThread {
+                var adapter = main_list.adapter as ListAdapter
+                adapter.notifyDataSetChanged()
+            }
+        }
+    }
+    inner class ImageNetworkThread(var fileName : String) : Thread(){
+        override fun run() {
+            var url = URL("http://203.244.145.214:8084/kobooleanWeb/food/${fileName}")
+
+            var connection = url.openConnection()
+            var stream = connection.getInputStream()
+
+            var bitmap = BitmapFactory.decodeStream(stream)
+
+            imageMap.put(fileName, bitmap)
+
+            runOnUiThread {
+                var adapter = main_list.adapter as ListAdapter
+                adapter.notifyDataSetChanged()
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,12 +21,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:hint="음식 명"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/price_write"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="가격"
         android:ems="10"
         android:inputType="textPersonName" />
 </LinearLayout>
