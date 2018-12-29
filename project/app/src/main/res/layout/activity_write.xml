@@ -30,5 +30,6 @@
         android:layout_height="wrap_content"
         android:hint="가격"
         android:ems="10"
+        android:digits="0123456789"
         android:inputType="textPersonName" />
 </LinearLayout>

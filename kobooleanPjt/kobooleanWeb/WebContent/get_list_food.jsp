@@ -24,8 +24,9 @@
 		int mobile_idx = rs.getInt("food_idx");
 		String mobile_img = rs.getString("mobile_img");
 		String mobile_str1 = rs.getString("mobile_food");
-		String mobile_str2 = rs.getString("mobile_pri");
+		int mobile_str = rs.getInt("mobile_pri");
 		
+		String mobile_str2 = String.valueOf(mobile_str);
 		JSONObject obj = new JSONObject();
 		obj.put("mobile_idx", mobile_idx);
 		obj.put("mobile_img", mobile_img);

@@ -40,7 +40,7 @@
 	pstmt.setString(1, user_id);
 	pstmt.setString(2, mobile_img);
 	pstmt.setString(3, mobile_str1);
-	pstmt.setString(4, mobile_str2);
+	pstmt.setInt(4, Integer.parseInt(mobile_str2));
 	
 	pstmt.execute();
 	
