@@ -68,17 +68,35 @@
             android:screenOrientation="portrait" />
         <activity android:name=".InsertFoodActivity" />
         <activity android:name=".WriteActivity" />
-        <activity android:name=".DetailActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".DetailActivity"
+            android:screenOrientation="portrait" />
+
         <provider
-            android:authorities="koboolean.co.kr.project.file_provider"
             android:name="android.support.v4.content.FileProvider"
+            android:authorities="koboolean.co.kr.project.file_provider"
             android:exported="false"
             android:grantUriPermissions="true">
-        <meta-data
-            android:name="android.support.FILE_PROVIDER_PATHS"
-            android:resource="@xml/file_path"/>
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
         </provider>
+
+        <activity android:name=".NfcTagGetActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="nfcclick"
+                    android:scheme="selecttable"
+                    tools:ignore="AppLinkUrlError" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

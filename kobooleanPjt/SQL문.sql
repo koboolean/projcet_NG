@@ -47,3 +47,15 @@ drop table foods;
 drop table orders;
 
 INSERT INTO foods(food_idx, user_id, mobile_img, mobile_food, mobile_pri) VALUES(FOOD_SEQ.NEXTVAL, "gd", "gd", "gd", "gd");
+
+create sequence nfc_seq
+start with 0
+increment by 1
+minvalue 0;
+
+create table nfc_area(
+    id number,
+    nfc_area_id varchar2(100),
+    nfc_area_table_num number,
+    primary key(id)
+)

@@ -23,6 +23,7 @@ import kr.co.koboolean.main.action.insertFoodAreaAction;
 import kr.co.koboolean.main.action.loginFormAction;
 import kr.co.koboolean.main.action.nfcStoreAction;
 import kr.co.koboolean.main.action.searchAreaAction;
+import kr.co.koboolean.main.action.serchNfcTableAction;
 import kr.co.koboolean.vo.ActionForward;
 
 /**
@@ -52,7 +53,7 @@ public class mainController extends HttpServlet {
 
 		ActionForward forward = null;
 		Action action = null;
-		System.out.println("command = "+command);
+		System.out.println("command = " + command);
 		if (command.equals("/signIn.main")) {
 			action = new SigninPageAction();
 			try {
@@ -157,7 +158,15 @@ public class mainController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} 
+		} else if (command.equals("/serchNfcTable.main")) {
+			action = new serchNfcTableAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		if (forward != null) {
 			// 비지니스 로직이 정상적으로 처리되었을 경우
 			if (forward.isRedirect()) {
