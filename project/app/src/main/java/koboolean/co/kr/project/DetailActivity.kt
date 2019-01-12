@@ -83,6 +83,7 @@ class DetailActivity : AppCompatActivity() {
             var url = builder.url("http://203.244.145.214:8084/kobooleanWeb/get_Reupload.jsp")
 
             var bodyBuilder = FormBody.Builder()
+
             bodyBuilder.add("mobile_idx", "${mobile_idx}")
             bodyBuilder.add("mobile_food", editText.text.toString())
             bodyBuilder.add("mobile_pri", editText2.text.toString())

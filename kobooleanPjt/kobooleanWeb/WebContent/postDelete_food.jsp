@@ -7,7 +7,9 @@
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String id = "koboolean";
 	String pw = "1234";
-
+	
+	request.setCharacterEncoding("utf-8");
+	
 	Connection db = DriverManager.getConnection(url, id, pw);
 
 	String mobile_idx = request.getParameter("mobile_idx");
