@@ -17,3 +17,6 @@
 
 - 주재민
 	- 1일차 진행할 일 : 여기에 적으시오
+
+
+http://203.244.145.214:8084/kobooleanWeb/searchRestaurant.jsp
