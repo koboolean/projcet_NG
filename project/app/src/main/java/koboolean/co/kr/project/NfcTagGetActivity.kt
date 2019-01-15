@@ -170,10 +170,11 @@ class NfcTagGetActivity : AppCompatActivity() {
         adapter.notifyDataSetChanged()
 
         sub_list.setOnItemClickListener{ adapterView, view, i, l ->
-            var intent = Intent(this, DetailActivity::class.java)
+            var intent = Intent(this, Detail_MenuActivity::class.java)
             var map = listData.get(i) as HashMap<String, Any>
             var mobile_idx = map.get("mobile_idx") as Int
             intent.putExtra("mobile_idx", mobile_idx)
+
             startActivity(intent)
         }
     }

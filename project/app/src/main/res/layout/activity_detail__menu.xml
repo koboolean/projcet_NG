@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Detail_MenuActivity">
+
+    <TextView
+        android:id="@+id/detail_menu_item"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp"
+        android:text="정보"/>
+
+    <ImageView
+        android:id="@+id/detail_menu"
+        android:layout_width="186dp"
+        android:layout_height="192dp"
+        android:layout_below="@+id/detail_menu_item"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/menu_call_items"
+        android:orientation="horizontal"
+        android:layout_below="@+id/detail_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/insert_menu"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="주문하기"
+         />
+        <Button
+            android:id="@+id/finish_menu"
+           android:layout_width="180dp"
+           android:layout_height="wrap_content"
+           android:text="주문완료"/>
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/listMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/menu_call_items"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteY="81dp">
+
+    </LinearLayout>
+</RelativeLayout>

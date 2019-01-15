@@ -83,7 +83,6 @@
         </provider>
 
         <activity android:name=".NfcTagGetActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -95,8 +94,8 @@
                     android:scheme="selecttable"
                     tools:ignore="AppLinkUrlError" />
             </intent-filter>
-
         </activity>
+        <activity android:name=".Detail_MenuActivity"></activity>
     </application>
 
 </manifest>
